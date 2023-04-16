@@ -59,12 +59,14 @@ const InputModal = ({modalVisibility, setModalVisibility, addNotes, seletedNote,
         <TextInput
         onChangeText={text => handleTextChange(text, 'noteTitle')}
           placeholder="Note Heading"
+          placeholderTextColor={colors.DARK}
           style={[styles.noteHeading, styles.textInput]}
           defaultValue={seletedNote?.title}
         />
         <TextInput
         onChangeText={text => handleTextChange(text, 'noteBody')}
           placeholder="Add your note..."
+          placeholderTextColor={colors.DARK}
           style={[styles.noteBody, styles.textInput]}
           defaultValue={seletedNote?.desc}
           multiline = {true}
@@ -130,7 +132,7 @@ const styles = StyleSheet.create({
   noteBody: {
     marginVertical: 20,
     fontSize: 20,
-    height: 200,
+    height: 150,
   },
   icon: {
     padding: 8,

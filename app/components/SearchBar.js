@@ -5,7 +5,7 @@ const {width} = Dimensions.get('window');
 const SearchBar = () => {
   return (
     <View style={styles.container}>
-      <TextInput style={styles.searchInput} placeholder="Search Is yet to implement..." />
+      <TextInput style={styles.searchInput} placeholderTextColor={colors.DARK} placeholder="Search Is yet to implement..." />
     </View>
   );
 };

@@ -33,6 +33,7 @@ const Intro = ({onFinish}) => {
           value={userName}
           onChangeText={handleOnchangeText}
           placeholder="Enter Name"
+          placeholderTextColor={colors.DARK}
         />
         {userName !== '' && userName.trim().length > 3 && (
           <View style={styles.roundIconBtn}>
@@ -52,6 +53,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: colors.GRAY
   },
   titleText: {
     alignSelf: 'flex-start',
