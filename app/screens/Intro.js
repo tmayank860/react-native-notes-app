@@ -35,7 +35,7 @@ const Intro = ({onFinish}) => {
           placeholder="Enter Name"
           placeholderTextColor={colors.DARK}
         />
-        {userName !== '' && userName.trim().length > 3 && (
+        {userName !== '' && userName.trim().length >= 3 && (
           <View style={styles.roundIconBtn}>
             <RoundIconBtn antIconName="arrowright" onPress={handleSubmit} />
           </View>
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     paddingLeft: 25,
     marginBottom: 8,
-    opacity: 0.5,
+    opacity: 0.8,
     color: colors.PRIMARY,
     fontSize: 14,
   },
@@ -67,6 +67,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: colors.PRIMARY,
     width: width - 50,
+    color: colors.PRIMARY,
     padding: 8,
     borderRadius: 10,
     fontSize: 24,

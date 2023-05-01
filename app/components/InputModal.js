@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   },
   contianer: {
     flex: 1,
-    paddingHorizontal: 5,
+    paddingHorizontal: 10,
     flexDirection: 'column',
   },
   textView: {

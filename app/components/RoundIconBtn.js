@@ -8,7 +8,7 @@ const RoundIconBtn = ({antIconName, size, color, onPress, style}) => {
     <Icon
       style={[styles.icon, {...style}]}
       name={antIconName}
-      color={color || colors.DARK}
+      color={color || colors.LIGHT}
       size={size || 24}
       onPress={onPress}
     />

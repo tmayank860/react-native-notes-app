@@ -1,11 +1,39 @@
 import {Dimensions, StyleSheet, Text, TextInput, View} from 'react-native';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import colors from '../appStyles/colors';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const {width} = Dimensions.get('window');
-const SearchBar = () => {
+const SearchBar = ({notes,setNotes, setSearchResult}) => {
+
+  const [searchInput, setSearchInput] = useState('');
+
+ const filterList = (list) => {
+    return list.filter(listItem => listItem?.title?.toLowerCase().includes(searchInput.toLowerCase()));
+  }
+  const searchNotes = async () => {
+    const result = await AsyncStorage.getItem('notes');
+    if (result !== null) {
+      const notesArray = JSON.parse(result);
+      setNotes(notesArray);
+    }
+  }
+useEffect(() => {
+ if(searchInput === ''){
+  searchNotes();
+ }else {
+  setNotes(filterList(notes));
+ }
+ 
+}, [searchInput])
+
   return (
     <View style={styles.container}>
-      <TextInput style={styles.searchInput} placeholderTextColor={colors.DARK} placeholder="Search Is yet to implement..." />
+      <TextInput
+        style={styles.searchInput}
+        placeholderTextColor={colors.DARK}
+        placeholder="Search in your notes..."
+        onChangeText={(search) => setSearchInput(search)}
+      />
     </View>
   );
 };
@@ -22,6 +50,7 @@ const styles = StyleSheet.create({
     borderColor: colors.PRIMARY,
     width: width - 20,
     padding: 8,
+    color: colors.PRIMARY,
     paddingLeft: 15,
     borderRadius: 10,
     fontSize: 20,

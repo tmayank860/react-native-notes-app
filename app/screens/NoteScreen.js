@@ -13,6 +13,7 @@ const NoteScreen = ({userName}) => {
   const [modalVisibility, setModalVisibility] = useState(false);
   const [notes, setNotes] = useState([]);
   const [seletedNote, setseletedNote] = useState({});
+  const [searchResult, setSearchResult] = useState([]);
 
   const addNotes = async(title, desc, id) => {
     const note = {id:moment().format('dddd, MMMM Do YYYY, h:mm:ss A'), title, desc};
@@ -80,9 +81,9 @@ const NoteScreen = ({userName}) => {
       <StatusBar barStyle="dark-content" backgroundColor={colors.LIGHT} />
       <View style={styles.container}>
         <Text style={styles.header}>{`Good ${greet} ${userName}!`}</Text>
-        <SearchBar />
+        <SearchBar setNotes = {setNotes} notes = {notes} setSearchResult = {setSearchResult}/>
         {notes && notes.length > 0 ? 
-        <Notes data= {notes} listItemClicked={listItemClicked} />:
+        <Notes data= {searchResult.length > 0 ? searchResult : notes} listItemClicked={listItemClicked} />:
          <View style={styles.emptyHeaderContainer}>
           <Text style={styles.emptyHeader}>Add notes</Text>
         </View>}

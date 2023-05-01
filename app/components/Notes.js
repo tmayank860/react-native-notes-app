@@ -1,5 +1,5 @@
 import { Dimensions, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import colors from '../appStyles/colors';
 
 const bgArray = ['#f7d44c', '#eb7a53', '#98b7db','#a8d672','#F6ECC9']
