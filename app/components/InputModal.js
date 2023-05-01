@@ -37,7 +37,7 @@ const InputModal = ({modalVisibility, setModalVisibility, addNotes, seletedNote,
             ]  
         );  
     }else{
-        addNotes(heading !== '' ? heading : seletedNote?.desc , noteBody !== '' ? noteBody : seletedNote?.desc, seletedNote?.id);
+        addNotes(heading !== '' ? heading : seletedNote?.title , noteBody !== '' ? noteBody : seletedNote?.desc, seletedNote?.id);
         setHeading('');
         setNoteBody('');
         setModalVisibility(false);
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
   noteHeading: {
     fontSize: 20,
     fontWeight: 'bold',
-    height: 40,
+    height: 45,
   },
   noteBody: {
     marginVertical: 20,

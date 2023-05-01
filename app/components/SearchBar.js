@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import colors from '../appStyles/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 const {width} = Dimensions.get('window');
-const SearchBar = ({notes,setNotes, setSearchResult}) => {
+const SearchBar = ({notes,setNotes}) => {
 
   const [searchInput, setSearchInput] = useState('');
 
